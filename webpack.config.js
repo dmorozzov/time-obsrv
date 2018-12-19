@@ -6,13 +6,13 @@ const env = process.env.NODE_ENV || 'production';
 console.log('>> Building ver.: ' + env);
 
 module.exports = {
-    devtool: 'source-map',
+    devtool: 'sourcemaps',
     entry: {
         app: [
             '@babel/polyfill',
             './src/index.js',
-            'webpack-dev-server/client?http://localhost:5000',
-            'webpack/hot/only-dev-server'
+            // 'webpack-dev-server/client?http://localhost:5000',
+            // 'webpack/hot/only-dev-server'
         ]
     },
     output: {

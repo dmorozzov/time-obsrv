@@ -1,8 +1,8 @@
-import React from "react";
-import { render } from "react-dom";
-import { Provider } from "react-redux";
-import store from "./store/index";
-import App from "./App";
+import React from 'react';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import store from './store/store';
+import App from './App';
 
 
 const routes = (
@@ -10,4 +10,4 @@ const routes = (
         <App/>
     </Provider>);
 
-render(routes, document.getElementById("root"));
+render(routes, document.getElementById('root'));
