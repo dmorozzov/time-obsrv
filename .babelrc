@@ -10,5 +10,5 @@
     ],
     "@babel/preset-react"
   ],
-  "plugins": ["react-hot-loader/babel", "@babel/plugin-syntax-object-rest-spread", "@babel/plugin-transform-destructuring"]
+  "plugins": ["react-hot-loader/babel", "@babel/plugin-syntax-object-rest-spread"]
 }

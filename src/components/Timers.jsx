@@ -1,27 +1,42 @@
-import React from "react";
-import connect from "react-redux/es/connect/connect";
-import {fetchTimers} from "@src/actions/actions";
+import React from 'react';
+import connect from 'react-redux/es/connect/connect';
+import {fetchTimers} from '@src/components/timers/actions';
+import Timer from './Timer';
+import NewTimer from '@src/components/NewTimer';
+import TimerSelector from '@src/components/TimerSelector';
 
 class Timers extends React.Component {
 
-    //const { timers } = this.props;
+    constructor(props) {
+        super(props);
+    }
+
+    componentDidMount() {
+        this.props.onRequestTimers();
+    }
+
+    renderTimers() {
+        const timers = this.props.timers || [];
+        const listTimers = timers.map((timer) =>
+            <Timer key={timer.id} {...timer} />
+        );
+
+        return (
+            <ul className="list-group list-group-flush">
+                {listTimers}
+            </ul>
+        );
+    }
 
     render() {
+        const { fetching, error, onRequestTimers } = this.props;
+
         return (
             <div className="col-md-4 offset-md-1">
-                <h2>Timers:</h2>
-                <ul className="list-group list-group-flush">
-                    {this.props.timers.map(el => (
-                        <li className="list-group-item" key={el.id}>
-                            {el.title}
-                        </li>
-                    ))}
-                </ul>
-                {this.props.fetching ? (
-                    <button disabled>Fetching...</button>
-                ) : (
-                    <button onClick={this.props.onRequestTimers}>Request a timers</button>
-                )}
+                <h4>Timers:</h4>
+                <TimerSelector fetching={fetching}/>
+                <NewTimer/>
+                { this.renderTimers() }
             </div>)
     }
 }
@@ -29,9 +44,9 @@ class Timers extends React.Component {
 export default connect(
     state => {
         return {
-            timers: state.timerState.timers,
-            fetching: state.timerState.fetching,
-            error: state.timerState.error
+            timers: state.timer.get('timers'),
+            fetching: state.timer.get('fetching'),
+            error: state.timer.get('error')
         }
     },
     dispatch => {

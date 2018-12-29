@@ -6,7 +6,7 @@ const env = process.env.NODE_ENV || 'production';
 console.log('>> Building ver.: ' + env);
 
 module.exports = {
-    devtool: 'sourcemaps',
+    devtool: 'source-map',
     entry: {
         app: [
             '@babel/polyfill',
@@ -30,8 +30,7 @@ module.exports = {
         rules: [
             {
                 test: /\.js$/,
-                use: ['babel-loader'],
-                enforce: 'pre'
+                use: ['babel-loader']
             },
             {
                 test: /\.scss$/,
