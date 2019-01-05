@@ -3,10 +3,11 @@ import Actions, {fetchTimersFailure, fetchTimersSuccess, saveTimer} from '../com
 import moment from 'moment';
 
 const result = [
-    {id: 1, title: 'success1', endTime: moment()},
-    {id: 2, title: 'success2', endTime: moment()},
-    {id: 3, title: 'success3', endTime: moment()},
-    {id: 4, title: 'success4', endTime: moment()}
+    {id: 1, title: 'end +1d', createdAt: moment().subtract(1, 'days'), endTime: moment().add(1, 'days'), description: 'Descr #1'},
+    {id: 2, title: 'end +1h', createdAt: moment().subtract(2, 'days'), endTime: moment().add(1, 'hours')},
+    {id: 3, title: 'end +1m', createdAt: moment().subtract(1, 'days'), endTime: moment().add(1, 'minutes')},
+    {id: 4, title: 'end +30m', createdAt: moment().subtract(1, 'hour'), endTime: moment().add(30, 'minutes')},
+    {id: 5, title: 'end +15s', createdAt: moment().subtract(1, 'minutes'), endTime: moment().add(15, 'seconds')}
 ];
 
 function getRandomInt(max) {

@@ -14,11 +14,9 @@ class NewTimer extends React.Component {
         const {addTimer} = this.props;
 
         return (
-            <div>
-                <button onClick={() => addTimer({title: 'I was borned for this', endTime: moment()})}>
-                    Add timer
-                </button>
-            </div>
+            <button type="button" className={'btn btn-primary'} onClick={() => addTimer({title: 'I was borned for this', endTime: moment().add(10,'seconds')})}>
+                Add timer
+            </button>
         )
     }
 }

@@ -2,8 +2,8 @@ import React from 'react';
 import connect from 'react-redux/es/connect/connect';
 import {fetchTimers} from '@src/components/timers/actions';
 import Timer from './Timer';
-import NewTimer from '@src/components/NewTimer';
-import TimerSelector from '@src/components/TimerSelector';
+import NewTimer from './NewTimer';
+import TimerSelector from './TimerSelector';
 
 class Timers extends React.Component {
 
@@ -22,9 +22,9 @@ class Timers extends React.Component {
         );
 
         return (
-            <ul className="list-group list-group-flush">
+            <div className='row'>
                 {listTimers}
-            </ul>
+            </div>
         );
     }
 
@@ -32,12 +32,24 @@ class Timers extends React.Component {
         const { fetching, error, onRequestTimers } = this.props;
 
         return (
-            <div className="col-md-4 offset-md-1">
-                <h4>Timers:</h4>
-                <TimerSelector fetching={fetching}/>
-                <NewTimer/>
-                { this.renderTimers() }
-            </div>)
+            <div className={'row'}>
+                <div className={'row'}>
+                    <div className="panel panel-default">
+                        <div className="panel-body">
+                            <div className="btn-toolbar" role="toolbar">
+                                <div className="btn-group">
+                                    <TimerSelector fetching={fetching}/>
+                                    <NewTimer/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className={'row'}>
+                    { this.renderTimers() }
+                </div>
+            </div>
+        )
     }
 }
 

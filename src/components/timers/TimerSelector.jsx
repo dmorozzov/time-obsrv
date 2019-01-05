@@ -14,9 +14,9 @@ class TimerSelector extends React.Component {
 
         return (
             fetching ? (
-                    <button disabled>Fetching...</button>
+                    <button type="button" className={'btn btn-default'} disabled>Fetching...</button>
                 ) : (
-                    <button onClick={fetchTimers}>Request a timers</button>
+                    <button type="button" className={'btn btn-default'} onClick={fetchTimers}>Request timers</button>
                 )
         )
     }
