@@ -1,9 +1,9 @@
 import React from 'react';
 import connect from 'react-redux/es/connect/connect';
-import {fetchTimers} from '@src/components/timers/actions';
 import Timer from './Timer';
 import NewTimer from './NewTimer';
 import TimerSelector from './TimerSelector';
+import {fetchEvents} from "./actions";
 
 class Timers extends React.Component {
 
@@ -56,13 +56,13 @@ class Timers extends React.Component {
 export default connect(
     state => {
         return {
-            timers: state.timer.get('timers'),
-            fetching: state.timer.get('fetching'),
-            error: state.timer.get('error')
+            events: state.events.get('events'),
+            fetching: state.events.get('fetching'),
+            error: state.events.get('error')
         }
     },
     dispatch => {
         return {
-            onRequestTimers: () => dispatch(fetchTimers())
+            onRequestTimers: () => dispatch(fetchEvents())
         };
     })(Timers);

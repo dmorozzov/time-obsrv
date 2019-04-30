@@ -1,10 +1,10 @@
 import {combineReducers} from 'redux';
-import timerReducers from '@src/components/timers/reducers';
+import eventReducers from '@src/components/event/reducers';
 import commonReducers from '@src/components/common/reducers';
 
 const reducers = {
     common: commonReducers,
-    timer: timerReducers
+    events: eventReducers
 };
 
 export default function(state, action) {

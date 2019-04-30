@@ -1,5 +1,6 @@
 const Actions = {
     AUTH: 'to.AUTH',
+    API_REQUEST: 'to.API_REQUEST'
 };
 
 export default Actions;

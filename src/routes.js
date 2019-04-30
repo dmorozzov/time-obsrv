@@ -1,4 +1,4 @@
-import Timers from '@src/components/timers/Timers';
+import Timers from '@src/components/event/Timers';
 import Login from '@src/components/common/Login';
 
 export default [

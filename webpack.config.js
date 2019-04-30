@@ -97,6 +97,7 @@ module.exports = {
             index: '/timeobserver/'
         },
         proxy: {
+            '/api': 'http://localhost:8050/'
         }
     },
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import connect from 'react-redux/es/connect/connect';
 import {bindActionCreators} from 'redux';
-import {addTimer} from '@src/components/timers/actions';
+import {addTimer} from '@src/components/event/actions';
 import moment from 'moment';
 
 class NewTimer extends React.Component {

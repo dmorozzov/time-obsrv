@@ -7,7 +7,7 @@ import {Map} from 'immutable';
 const sagaMiddleware = createSagaMiddleware();
 
 const initialState = {
-    timer: Map(),
+    events: Map(),
     common: Map()
 };
 
