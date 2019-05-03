@@ -1,17 +1,18 @@
 import Actions from './actions';
 
 const initialState = {
-    isAuthenticated: false
+    isAuthenticated: false,
+    accessToken: undefined
 };
 
 export default function(state = initialState, action) {
     switch (action.type) {
-        case Actions.AUTH:
+        case Actions.SIGN_IN_SUCCESS:
             return handleAuth(state, action);
     }
     return state;
 }
 
-function handleAuth(state, {isAuthenticated}) {
-    return state.set('isAuthenticated', isAuthenticated);
+function handleAuth(state, {authData}) {
+    return state.set('isAuthenticated', true).set('accessToken', authData.accessToken);
 }

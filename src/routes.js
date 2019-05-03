@@ -1,14 +1,19 @@
-import Timers from '@src/components/event/Timers';
-import Login from '@src/components/common/Login';
+import SignUpPage from "./components/common/SignUpPage";
+import LoginPage from "./components/common/LoginPage";
+import EventsPage from "./components/event/EventsPage";
 
 export default [
     {
         path: '/login',
-        component: Login
+        component: LoginPage
+    },
+    {
+        path: '/sign-up',
+        component: SignUpPage
     },
     {
         path: '/',
-        component: Timers,
+        component: EventsPage,
         secure: true,
         // routes: [
         //     {

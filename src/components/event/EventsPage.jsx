@@ -5,7 +5,7 @@ import NewTimer from './NewTimer';
 import TimerSelector from './TimerSelector';
 import {fetchEvents} from "./actions";
 
-class Timers extends React.Component {
+class EventsPage extends React.Component {
 
     constructor(props) {
         super(props);
@@ -65,4 +65,4 @@ export default connect(
         return {
             onRequestTimers: () => dispatch(fetchEvents())
         };
-    })(Timers);
+    })(EventsPage);

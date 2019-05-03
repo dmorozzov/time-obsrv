@@ -2,17 +2,18 @@ import {all, put, takeLatest} from "redux-saga/effects";
 import Actions, {fetchTimersFailure, fetchTimersSuccess, saveTimer} from "./actions";
 import moment from 'moment';
 import {performApiRequest} from "../common/commonSagas";
+import * as api from '../../service/api';
 
 export default function() {
     return all([
-        takeLatest(Actions.FETCH_ALL_EVENTS, handleFetchEvents),
+        takeLatest(Actions.FETCH_ALL_EVENTS, handleFetchEventGroups),
         takeLatest(Actions.NEW_EVENT, handleSaveEvent)
     ])
 }
 
-function* handleFetchEvents() {
+function* handleFetchEventGroups() {
     try {
-        const [result] = yield* performApiRequest();
+        const [result] = yield* performApiRequest(api.fetchEventGroups, {});
         if (!result) return;
 
         yield put(fetchTimersSuccess(result));

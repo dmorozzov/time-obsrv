@@ -92,12 +92,10 @@ module.exports = {
         contentBase: './dist',
         hot: true,
         port: 5000,
-        // redirect 404s to index
-        historyApiFallback: {
-            index: '/timeobserver/'
-        },
+        index: 'src/index.html',
+        historyApiFallback: true,
         proxy: {
-            '/api': 'http://localhost:8050/'
+            '/api': 'http://localhost:5050/'
         }
     },
 };
